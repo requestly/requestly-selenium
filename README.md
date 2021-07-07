@@ -20,7 +20,7 @@ const options = new chrome.Options().addExtensions(getRequestlyExtension());
 
 const driver = new Builder()
     .forBrowser("chrome")
-    .setChromeOptions(opt)
+    .setChromeOptions(options)
     .build();
 
 importRequestlySharedList(driver,<sharedList URL>); // Imports Rules in Selenium using Requestly sharedList feature

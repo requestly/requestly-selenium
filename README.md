@@ -23,11 +23,11 @@ const driver = new Builder()
     .setChromeOptions(options)
     .build();
 
-importRequestlySharedList(driver,<sharedList URL>); // Imports Rules in Selenium using Requestly sharedList feature
+importRequestlySharedList(driver,<sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
 
 ```
 
 #### Shared List
 
-Users can share Requestly Rules with other users using Shared Lists which are used for impoerting rules into Selenium webdriver. Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)
+Users can share Requestly Rules with other users using Shared Lists which is used for importing rules into Selenium webdriver. Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)
 

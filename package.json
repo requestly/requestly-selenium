@@ -1,0 +1,35 @@
+{
+  "name": "requestly_selenium",
+  "version": "1.0.0",
+  "description": "Package for using Requestly in Selenium webdriver",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/requestly/requestly-selenium.git"
+  },
+  "author": "contact@requestly.io",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/requestly/requestly-selenium/issues"
+  },
+  "homepage": "https://requestly.io/",
+  "keywords": [
+    "requestly",
+    "selenium",
+    "webdriver",
+    "chrome",
+    "modify",
+    "headers",
+    "request headers",
+    "response headers",
+    "redirect",
+    "redirect network requests",
+    "delay",
+    "delay network requests",
+    "throttle",
+    "throttle network requests"
+  ],
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-beta.4"
+  }
+}

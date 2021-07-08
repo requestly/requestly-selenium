@@ -1,18 +1,21 @@
 {
-  "name": "requestly_selenium",
+  "name": "@requestly/selenium",
   "version": "1.0.0",
   "description": "Package for using Requestly in Selenium webdriver",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/requestly/requestly-selenium.git"
+    "url": "git+https://github.com/requestly/requestly-selenium.git"
   },
-  "author": "contact@requestly.io",
+  "author": "Requestly <contact@requestly.io>",
   "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/requestly/requestly-selenium/issues"
   },
   "homepage": "https://requestly.io/",
+  "engines": {
+    "node": ">=10.15.0"
+  },
   "keywords": [
     "requestly",
     "selenium",
@@ -29,7 +32,7 @@
     "throttle",
     "throttle network requests"
   ],
-  "dependencies": {
-    "selenium-webdriver": "^4.0.0-beta.4"
+  "peerDependencies": {
+    "selenium-webdriver": "*"
   }
 }

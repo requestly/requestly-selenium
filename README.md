@@ -5,16 +5,16 @@ This is the package for using [Requestly](https://requestly.io) in [Selenium](ht
 ## Installation
 
 ```
-npm install requestly-selenium selenium-webdriver chromedriver
+npm install chromedriver selenium-webdriver @requestly/selenium
 ```
 
 ## Usage
 
 ```
 require("chromedriver");
-const { Builder } = require("selenium-webdriver");
+const { Builder, until, By } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
-const { getRequestlyExtension, importRequestlySharedList } = require("requestly-selenium");
+const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
 
 const options = new chrome.Options().addExtensions(getRequestlyExtension());
 
@@ -23,11 +23,12 @@ const driver = new Builder()
     .setChromeOptions(options)
     .build();
 
-importRequestlySharedList(driver,<sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
+importRequestlySharedList(driver, until, By, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
 
 ```
 
 #### Shared List
 
-Users can share Requestly Rules with other users using Shared Lists which is used for importing rules into Selenium webdriver. Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)
+Users can share Requestly Rules with other users using Shared Lists which is used for importing rules into Selenium webdriver. You can try this sample shared list - https://app.requestly.io/shared-lists/viewer/1625686153436-Sample-Rules
 
+Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)

@@ -15,16 +15,30 @@ function encodeFile(file) {
 
 /**
  * Returns base64 encoded Requestly extension which can be added to selenium browser
+ * @param {"chrome" | "firefox"} browser Name of the browser for which extension is needed
  * @returns Encoded Extension
  */
-function getRequestlyExtension() {
-  return encodeFile(
-    path.join(
-      __dirname,
-      CONSTANTS.EXTENSION_FOLDER,
-      CONSTANTS.REQUESTLY_EXTENSION
-    )
-  );
+function getRequestlyExtension(browser) {
+  switch (browser) {
+    case CONSTANTS.BROWSERS.FIREFOX:
+      return path.join(
+        __dirname,
+        CONSTANTS.EXTENSION_FOLDER,
+        CONSTANTS.REQUESTLY_FIREFOX_EXTENSION
+      );
+
+    case CONSTANTS.BROWSERS.CHROME:
+      return encodeFile(
+        path.join(
+          __dirname,
+          CONSTANTS.EXTENSION_FOLDER,
+          CONSTANTS.REQUESTLY_CHROME_EXTENSION
+        )
+      );
+
+    default:
+      throw "Missing Browser Name";
+  }
 }
 
 /**
@@ -36,11 +50,13 @@ const importRequestlySharedList = async (driver, sharedListUrl) => {
   const tabs = await driver.getAllWindowHandles();
   // Switch to /rules which gets opened after installation of extension because
   // The focus is by default on the 1st tab opened.
-  await driver.switchTo().window(tabs[0]);
-  // Close the /rules tab
-  await driver.close();
-  // Switch to the 1st tab(default)
-  await driver.switchTo().window(tabs[1]);
+  if (tabs.length > 1) {
+    await driver.switchTo().window(tabs[0]);
+    // Close the /rules tab
+    await driver.close();
+    // Switch to the 1st tab(default)
+    await driver.switchTo().window(tabs[1]);
+  }
   // Open Page Url
   await driver.get(sharedListUrl);
   // Condition for wait till Import List button is located

@@ -4,13 +4,13 @@ This is the package for using [Requestly](https://requestly.io) in [Selenium](ht
 
 ## Installation
 
-```
+```sh
 npm install chromedriver selenium-webdriver @requestly/selenium
 ```
 
 ## Usage
 
-```
+```js
 require("chromedriver");
 const { Builder, until, By } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");

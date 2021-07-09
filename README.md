@@ -12,7 +12,7 @@ npm install chromedriver selenium-webdriver @requestly/selenium
 
 ```js
 require("chromedriver");
-const { Builder, until, By } = require("selenium-webdriver");
+const { Builder } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
 const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
 
@@ -23,7 +23,7 @@ const driver = new Builder()
     .setChromeOptions(options)
     .build();
 
-importRequestlySharedList(driver, until, By, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
+importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
 
 ```
 

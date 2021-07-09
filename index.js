@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const CONSTANTS = require(path.join(__dirname, "CONSTANTS"));
+const { By, until } = require("selenium-webdriver");
 
 /**
  * Reads and encodes file into base64
@@ -29,11 +30,9 @@ function getRequestlyExtension() {
 /**
  * Imports shared-list to user rules in requestly
  * @param {Object} driver selenium-webdriver instance
- * @param {Object} until selenium-webdriver until instance to wait for a condition
- * @param {Object} By selenium-webdriver By instance to locate an element
  * @param {String} sharedListUrl Requestly SharedList Url to be imported
  */
-const importRequestlySharedList = async (driver, until, By, sharedListUrl) => {
+const importRequestlySharedList = async (driver, sharedListUrl) => {
   const tabs = await driver.getAllWindowHandles();
   // Switch to /rules which gets opened after installation of extension because
   // The focus is by default on the 1st tab opened.
@@ -44,10 +43,15 @@ const importRequestlySharedList = async (driver, until, By, sharedListUrl) => {
   await driver.switchTo().window(tabs[1]);
   // Open Page Url
   await driver.get(sharedListUrl);
+  // Condition for wait till Import List button is located
+  const condition = until.elementsLocated(
+    By.css(CONSTANTS.IMPORT_LIST_BUTTON_CLASS)
+  );
   // Wait until Import List button gets loaded
   await driver.wait(
-    until.elementsLocated(By.css(CONSTANTS.IMPORT_LIST_BUTTON_CLASS)),
-    10000
+    async (driver) => condition.fn(driver),
+    10000,
+    "Loading Failed"
   );
   // Click on import List button
   await driver.findElement(By.css(CONSTANTS.IMPORT_LIST_BUTTON_CLASS)).click();

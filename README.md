@@ -5,10 +5,12 @@ This is the package for using [Requestly](https://requestly.io) in [Selenium](ht
 ## Installation
 
 ```sh
-npm install chromedriver selenium-webdriver @requestly/selenium
+npm install selenium-webdriver @requestly/selenium
 ```
 
 ## Usage
+
+#### For Chrome
 
 ```js
 require("chromedriver");
@@ -16,7 +18,7 @@ const { Builder } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
 const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
 
-const options = new chrome.Options().addExtensions(getRequestlyExtension());
+const options = new chrome.Options().addExtensions(getRequestlyExtension("chrome"));
 
 const driver = new Builder()
     .forBrowser("chrome")
@@ -26,6 +28,29 @@ const driver = new Builder()
 importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
 
 ```
+
+> `chromedriver` is an npm wrapper for selenium ChromeDriver.
+
+#### For Firefox
+
+```js
+require("geckodriver");
+const { Builder } = require("selenium-webdriver");
+const firefox = require("selenium-webdriver/firefox");
+const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
+
+const options = new firefox.Options().addExtensions(getRequestlyExtension("firefox"));
+
+const driver = new Builder()
+    .forBrowser("firefox")
+    .setFirefoxOptions(options)
+    .build();
+
+importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
+
+```
+
+> `geckodriver` is an npm wrapper for selenium.
 
 #### Shared List
 

@@ -50,7 +50,28 @@ importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Seleniu
 
 ```
 
-> `geckodriver` is an npm wrapper for selenium.
+> `geckodriver` is an npm wrapper for selenium firefox.
+
+#### For Edge
+
+```js
+require('msedgedriver');
+var webdriver = require('selenium-webdriver');
+const edge = require("selenium-webdriver/edge");
+const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
+
+const options = new edge.Options().addExtensions(getRequestlyExtension("MicrosoftEdge"));
+
+var driver = new webdriver.Builder()
+  .forBrowser('MicrosoftEdge')
+  .setEdgeOptions(options)
+  .build();
+
+importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
+
+```
+
+> `msedgedriver` is an npm wrapper for selenium edge.
 
 #### Shared List
 

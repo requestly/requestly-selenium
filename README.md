@@ -1,6 +1,6 @@
 # Requestly for Selenium
 
-This is the package for using [Requestly](https://requestly.io) in [Selenium](https://www.selenium.dev/). Using Requestly you can Modify Headers, Redirect Url, Mock API response, Delay/Throttle requests, etc.
+This is the package for using [Requestly](https://requestly.io) in [Selenium](https://www.selenium.dev/). Using Requestly you can Modify Headers, Redirect Request Url, Mock API response, Delay/Throttle requests, etc.
 
 ## Installation
 

@@ -15,7 +15,7 @@ function encodeFile(file) {
 
 /**
  * Returns base64 encoded Requestly extension which can be added to selenium browser
- * @param {"chrome" | "firefox"} browser Name of the browser for which extension is needed
+ * @param {"chrome" | "firefox" | "MicrosoftEdge"} browser Name of the browser for which extension is needed
  * @returns Encoded Extension
  */
 function getRequestlyExtension(browser) {
@@ -28,11 +28,12 @@ function getRequestlyExtension(browser) {
       );
 
     case CONSTANTS.BROWSERS.CHROME:
+    case CONSTANTS.BROWSERS.EDGE:
       return encodeFile(
         path.join(
           __dirname,
           CONSTANTS.EXTENSION_FOLDER,
-          CONSTANTS.REQUESTLY_CHROME_EXTENSION
+          CONSTANTS.REQUESTLY_CHROMIUM_EXTENSION
         )
       );
 
@@ -67,7 +68,7 @@ const importRequestlySharedList = async (driver, sharedListUrl) => {
   await driver.wait(
     async (driver) => condition.fn(driver),
     10000,
-    "Loading Failed"
+    "Loading Timeout"
   );
   // Click on import List button
   await driver.findElement(By.css(CONSTANTS.IMPORT_LIST_BUTTON_CLASS)).click();

@@ -16,10 +16,7 @@ npm install selenium-webdriver @requestly/selenium
 require("chromedriver");
 const { Builder } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
-const {
-  getRequestlyExtension,
-  importRequestlySharedList,
-} = require("@requestly/selenium");
+const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
 
 const options = new chrome.Options().addExtensions(
   getRequestlyExtension("chrome")

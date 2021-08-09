@@ -10,7 +10,7 @@ npm install selenium-webdriver @requestly/selenium
 
 ## Usage
 
-#### For Chrome
+### For Chrome
 
 ```js
 require("chromedriver");
@@ -31,7 +31,7 @@ importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Seleniu
 
 > `chromedriver` is an npm wrapper for selenium ChromeDriver.
 
-#### For Firefox
+### For Firefox
 
 ```js
 require("geckodriver");
@@ -52,7 +52,7 @@ importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Seleniu
 
 > `geckodriver` is an npm wrapper for selenium firefox.
 
-#### For Edge
+### For Edge
 
 ```js
 require('msedgedriver');
@@ -73,8 +73,37 @@ importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Seleniu
 
 > `msedgedriver` is an npm wrapper for selenium edge.
 
-#### Shared List
+### Shared List
 
-Users can share Requestly Rules with other users using Shared Lists which is used for importing rules into Selenium webdriver. You can try this sample shared list - https://app.requestly.io/shared-lists/viewer/1625686153436-Sample-Rules
+Users can share Requestly Rules with other users using Shared Lists which is used for importing rules into Selenium webdriver.
+
+Almost all websites contain `content-security-policy` and `X-Frame-Options` header due to which the browser does not the allow the website to open in iframe.
+
+You can try this sharedlist to open websites in iframe:
+[https://app.requestly.io/rules/#sharedList/1628536158787-Open-Websites-in-iframe](https://app.requestly.io/rules/#sharedList/1628536158787-Open-Websites-in-iframe)
+
+#### Snippet to open linkedin in iframe in selenium
+
+```js
+require("chromedriver");
+const { Builder } = require("selenium-webdriver");
+const chrome = require("selenium-webdriver/chrome");
+const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
+
+const options = new chrome.Options().addExtensions(getRequestlyExtension("chrome"));
+
+const driver = new Builder()
+    .forBrowser("chrome")
+    .setChromeOptions(options)
+    .build();
+
+importRequestlySharedList(driver,"https://app.requestly.io/rules/#sharedList/1628536158787-Open-Websites-in-iframe"); // Imports Rule to load linkedin in iframe
+
+driver.get("https://jsbin.com/zotofulofu/2/edit?html,output"); // Opens a jsbin which loads linkedin in iframe
+
+```
+
+> Try opening the above `jsbin` without the `importRequestlySharedList` step. Did `linkedin` load in `iframe` without that step?
+
 
 Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)

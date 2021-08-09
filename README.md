@@ -16,17 +16,22 @@ npm install selenium-webdriver @requestly/selenium
 require("chromedriver");
 const { Builder } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
-const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
+const {
+  getRequestlyExtension,
+  importRequestlySharedList,
+} = require("@requestly/selenium");
 
-const options = new chrome.Options().addExtensions(getRequestlyExtension("chrome"));
+const options = new chrome.Options().addExtensions(
+  getRequestlyExtension("chrome")
+);
 
 const driver = new Builder()
-    .forBrowser("chrome")
-    .setChromeOptions(options)
-    .build();
+  .forBrowser("chrome")
+  .setChromeOptions(options)
+  .build();
 
-importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
-
+// Imports Rules in Selenium using Requestly sharedList feature
+importRequestlySharedList(driver, <sharedList_URL>);
 ```
 
 > `chromedriver` is an npm wrapper for selenium ChromeDriver.
@@ -46,8 +51,8 @@ const driver = new Builder()
     .setFirefoxOptions(options)
     .build();
 
-importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
-
+// Imports Rules in Selenium using Requestly sharedList feature
+importRequestlySharedList(driver, <sharedList_URL>);
 ```
 
 > `geckodriver` is an npm wrapper for selenium firefox.
@@ -67,7 +72,8 @@ var driver = new webdriver.Builder()
   .setEdgeOptions(options)
   .build();
 
-importRequestlySharedList(driver, <sharedList_URL>); // Imports Rules in Selenium using Requestly sharedList feature
+// Imports Rules in Selenium using Requestly sharedList feature
+importRequestlySharedList(driver, <sharedList_URL>);
 
 ```
 
@@ -88,22 +94,30 @@ You can try this sharedlist to open websites in iframe:
 require("chromedriver");
 const { Builder } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
-const { getRequestlyExtension, importRequestlySharedList } = require("@requestly/selenium");
+const {
+  getRequestlyExtension,
+  importRequestlySharedList,
+} = require("@requestly/selenium");
 
-const options = new chrome.Options().addExtensions(getRequestlyExtension("chrome"));
+const options = new chrome.Options().addExtensions(
+  getRequestlyExtension("chrome")
+);
 
 const driver = new Builder()
-    .forBrowser("chrome")
-    .setChromeOptions(options)
-    .build();
+  .forBrowser("chrome")
+  .setChromeOptions(options)
+  .build();
 
-importRequestlySharedList(driver,"https://app.requestly.io/rules/#sharedList/1628536158787-Open-Websites-in-iframe"); // Imports Rule to load linkedin in iframe
+// Imports Rule to load linkedin in iframe
+importRequestlySharedList(
+  driver,
+  "https://app.requestly.io/rules/#sharedList/1628536158787-Open-Websites-in-iframe"
+);
 
-driver.get("https://jsbin.com/zotofulofu/2/edit?html,output"); // Opens a jsbin which loads linkedin in iframe
-
+// Opens a jsbin which loads linkedin in iframe
+driver.get("https://jsbin.com/zotofulofu/2/edit?html,output");
 ```
 
 > Try opening the above `jsbin` without the `importRequestlySharedList` step. Did `linkedin` load in `iframe` without that step?
-
 
 Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)

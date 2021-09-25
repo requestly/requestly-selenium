@@ -80,12 +80,18 @@ importRequestlySharedList(driver, <sharedList_URL>);
 
 Users can share Requestly Rules with other users using Shared Lists which is used for importing rules into Selenium webdriver.
 
+Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)
+
+---
+
+## Example Snippets
+
 Almost all websites contain `content-security-policy` and `X-Frame-Options` header due to which the browser does not the allow the website to open in iframe.
 
 You can try this sharedlist to open websites in iframe:
 [https://app.requestly.io/rules/#sharedList/1628536158787-Open-Websites-in-iframe](https://app.requestly.io/rules/#sharedList/1628536158787-Open-Websites-in-iframe)
 
-#### Snippet to open linkedin in iframe in selenium
+### Snippet to open linkedin in iframe in selenium
 
 ```js
 require("chromedriver");
@@ -117,11 +123,11 @@ driver.get("https://jsbin.com/zotofulofu/2/edit?html,output");
 
 > Try opening the above `jsbin` without the `importRequestlySharedList` step. Did `linkedin` load in `iframe` without that step?
 
-Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)
-
 ### Snippet to throttle network using Selenium for Application Testing
 
 In this example, we'll delay network request for https://www.google.com
+
+This [SharedList](https://app.requestly.io/rules/#sharedList/1631611216670-delay) will be used to delay google.com
 
 Let's start by installing the dependencies and importing them into our project
 
@@ -164,6 +170,6 @@ async function delayGoogle() {
 }
 ```
 
-Now, on running the function, we'll experience a network dely for google.com
+Now, on running the function, we'll experience a network delay for google.com
 
 Find more detailed steps, click [here](https://requestly.io/blog/2021/09/20/automate-testing-via-selenium/)

@@ -165,3 +165,5 @@ async function delayGoogle() {
 ```
 
 Now, on running the function, we'll experience a network dely for google.com
+
+Find more detailed steps, click [here](https://requestly.io/blog/2021/09/20/automate-testing-via-selenium/)

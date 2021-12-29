@@ -29,12 +29,10 @@ function getRequestlyExtension(browser) {
 
     case CONSTANTS.BROWSERS.CHROME:
     case CONSTANTS.BROWSERS.EDGE:
-      return encodeFile(
-        path.join(
-          __dirname,
-          CONSTANTS.EXTENSION_FOLDER,
-          CONSTANTS.REQUESTLY_CHROMIUM_EXTENSION
-        )
+      return path.join(
+        __dirname,
+        CONSTANTS.EXTENSION_FOLDER,
+        CONSTANTS.REQUESTLY_CHROMIUM_EXTENSION
       );
 
     default:

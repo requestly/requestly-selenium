@@ -1,6 +1,6 @@
 {
   "name": "@requestly/selenium",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Package for using Requestly in Selenium webdriver",
   "main": "index.js",
   "repository": {

@@ -1,6 +1,6 @@
 # Requestly for Selenium
 
-This is the package for using [Requestly](https://requestly.io) in [Selenium](https://www.selenium.dev/). Using Requestly you can Modify Headers, Redirect Request Url, Mock API response, Delay/Throttle requests, etc.
+This is the package for using [Requestly](https://requestly.com) in [Selenium](https://www.selenium.dev/). Using Requestly you can Modify Headers, Redirect Request Url, Mock API response, Delay/Throttle requests, etc.
 
 ## Installation
 
@@ -80,7 +80,7 @@ importRequestlySharedList(driver, <sharedList_URL>);
 
 Users can share Requestly Rules with other users using Shared Lists which is used for importing rules into Selenium webdriver.
 
-Find more information [here](https://requestly.io/blog/2018/06/14/share-rules-with-other-users/)
+Find more information [here](https://requestly.com/blog/2018/06/14/share-rules-with-other-users/)
 
 ---
 
@@ -172,4 +172,4 @@ async function delayGoogle() {
 
 Now, on running the function, we'll experience a network delay for google.com
 
-Find more detailed steps, click [here](https://requestly.io/blog/2021/09/20/automate-testing-via-selenium/)
+Find more detailed steps, click [here](https://requestly.com/blog/2021/09/20/automate-testing-via-selenium/)
